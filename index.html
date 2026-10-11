@@ -58,17 +58,17 @@ header.scrolled{
   padding:14px 0;
 }
 .logo{
-  display:flex;align-items:center;gap:10px;
+  display:flex;align-items:center;
   color:var(--white);
-  font-weight:800;font-size:1.5rem;letter-spacing:.5px;
 }
-.logo-mark{
-  width:42px;height:42px;flex-shrink:0;
+.logo-img{
+  height:52px;
+  width:auto;
+  object-fit:contain;
+  transition:var(--transition);
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,0.15));
 }
-.logo-text{display:flex;flex-direction:column;line-height:1;}
-.logo-text .cizi{font-size:1.5rem;font-weight:800;color:var(--white);}
-.logo-text .cizi span{color:var(--yellow);}
-.logo-text .mercado{font-size:.55rem;letter-spacing:4px;font-weight:500;color:var(--yellow);margin-top:3px;}
+.logo:hover .logo-img{transform:scale(1.05);}
 
 .nav-links{display:flex;gap:34px;align-items:center;}
 .nav-links a{
@@ -514,6 +514,7 @@ footer{
   gap:40px;margin-bottom:40px;
 }
 .footer-brand .logo{margin-bottom:16px;}
+.footer-brand .logo-img{height:56px;}
 .footer-brand p{font-size:.85rem;max-width:340px;}
 .footer-col h4{
   color:var(--white);font-size:.9rem;font-weight:700;
@@ -589,6 +590,7 @@ footer{
   .footer-grid{grid-template-columns:1fr;}
   .footer-bottom{flex-direction:column;text-align:center;}
   section{padding:70px 0;}
+  .logo-img{height:44px;}
 }
 @media(max-width:480px){
   .fases-timeline{grid-template-columns:1fr;}
@@ -603,18 +605,8 @@ footer{
 <!-- ============ HEADER ============ -->
 <header id="header">
   <div class="container nav">
-    <a href="#home" class="logo">
-      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="35" r="18" fill="#FFC72C"/>
-        <path d="M50 17 C50 8, 58 5, 65 8 C60 12, 58 18, 58 22 C55 19, 52 17, 50 17Z" fill="#FFC72C"/>
-        <path d="M15 50 Q15 85 50 85 Q85 85 85 50 L70 50 Q70 70 50 70 Q30 70 30 50 Z" fill="#ffffff"/>
-        <circle cx="50" cy="50" r="14" fill="#1a1f4e"/>
-        <circle cx="50" cy="50" r="10" fill="#FFC72C"/>
-      </svg>
-      <div class="logo-text">
-        <span class="cizi">Ci<span>Z</span>i</span>
-        <span class="mercado">MERCADO</span>
-      </div>
+    <a href="#home" class="logo" aria-label="CiZi Mercado">
+      <img src="logo_branco.jpg" alt="CiZi Mercado Express" class="logo-img">
     </a>
     <nav class="nav-links" id="navLinks">
       <a href="#sobre">Sobre</a>
@@ -665,7 +657,7 @@ footer{
     </div>
     <div class="hero-visual">
       <div class="hero-card">
-        <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=800&q=80" alt="CiZi Mercado Express">
+        <img src="fotocontainer.png" alt="CiZi Mercado Express - Container">
       </div>
       <div class="hero-stat hero-stat-1">
         <div class="icon">
@@ -694,7 +686,7 @@ footer{
   <div class="container">
     <div class="about-grid">
       <div class="about-visual reveal">
-        <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?w=800&q=80" alt="Interior CiZi Mercado">
+        <img src="fotoprateleira.png" alt="Prateleiras CiZi Mercado">
       </div>
       <div class="about-content reveal">
         <span class="section-tag">Quem Somos</span>
@@ -896,7 +888,7 @@ footer{
   <div class="container">
     <div class="comprar-grid">
       <div class="comprar-visual reveal">
-        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="Totem de autoatendimento CiZi">
+        <img src="expositor.png" alt="Expositor CiZi Mercado">
       </div>
       <div class="comprar-content reveal">
         <span class="section-tag">Experiência de Compra</span>
@@ -982,17 +974,7 @@ footer{
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo">
-          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="35" r="18" fill="#FFC72C"/>
-            <path d="M50 17 C50 8, 58 5, 65 8 C60 12, 58 18, 58 22 C55 19, 52 17, 50 17Z" fill="#FFC72C"/>
-            <path d="M15 50 Q15 85 50 85 Q85 85 85 50 L70 50 Q70 70 50 70 Q30 70 30 50 Z" fill="#ffffff"/>
-            <circle cx="50" cy="50" r="14" fill="#1a1f4e"/>
-            <circle cx="50" cy="50" r="10" fill="#FFC72C"/>
-          </svg>
-          <div class="logo-text">
-            <span class="cizi">Ci<span>Z</span>i</span>
-            <span class="mercado">MERCADO</span>
-          </div>
+          <img src="logo_branco.jpg" alt="CiZi Mercado Express" class="logo-img">
         </div>
         <p>Mini mercados autônomos 24h para condomínios. Praticidade, segurança e qualidade de vida para os moradores. Sempre aberto, sempre perto!</p>
       </div>
