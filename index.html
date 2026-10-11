@@ -357,6 +357,93 @@ section{padding:100px 0;}
 .unidades-cta h3 span{color:var(--yellow);}
 .unidades-cta p{color:rgba(255,255,255,0.75);margin-bottom:24px;}
 
+/* ============ VÍDEO DENTRO DE UNIDADES (VERTICAL) ============ */
+.unidades-video-block{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:50px;
+  align-items:center;
+  max-width:900px;
+  margin:0 auto 60px;
+}
+
+/* Moldura vertical 9:16 */
+.unidades-video{
+  position:relative;
+  width:280px;
+  aspect-ratio:9/16;
+  margin:0 auto;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  background:#000;
+  border:6px solid var(--navy);
+}
+.unidades-video video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.unidades-video .video-play{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg, rgba(15,19,48,0.55), rgba(26,31,78,0.65));
+  cursor:pointer;
+  transition:var(--transition);
+  z-index:2;
+  border:none;
+  width:100%;
+  height:100%;
+  padding:0;
+}
+.unidades-video .video-play:hover{
+  background:linear-gradient(135deg, rgba(15,19,48,0.4), rgba(26,31,78,0.5));
+}
+.unidades-video .video-play.hidden{opacity:0;pointer-events:none;}
+.unidades-video .video-play-icon{
+  width:70px;height:70px;border-radius:50%;
+  background:var(--yellow);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 40px rgba(255,199,44,0.5);
+  transition:var(--transition);
+  animation:pulsePlay 2.5s infinite;
+}
+.unidades-video .video-play:hover .video-play-icon{transform:scale(1.1);}
+.unidades-video .video-play-icon svg{
+  width:28px;height:28px;fill:var(--navy);margin-left:4px;
+}
+@keyframes pulsePlay{
+  0%,100%{box-shadow:0 10px 40px rgba(255,199,44,0.5);}
+  50%{box-shadow:0 10px 40px rgba(255,199,44,0.8), 0 0 0 16px rgba(255,199,44,0.12);}
+}
+
+/* Texto ao lado do vídeo */
+.unidades-video-text h3{
+  font-size:clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight:800;
+  color:var(--navy);
+  line-height:1.25;
+  margin-bottom:14px;
+}
+.unidades-video-text h3 .highlight{color:var(--yellow-dark);}
+.unidades-video-text p{
+  color:var(--gray);
+  font-size:.95rem;
+  margin-bottom:18px;
+}
+.unidades-video-text ul{display:flex;flex-direction:column;gap:10px;}
+.unidades-video-text ul li{
+  display:flex;align-items:center;gap:10px;
+  font-size:.88rem;color:var(--navy);font-weight:500;
+}
+.unidades-video-text ul li svg{
+  width:18px;height:18px;fill:var(--yellow-dark);flex-shrink:0;
+}
+
 /* ============ CASHBACK ============ */
 .cashback-grid{
   display:grid;grid-template-columns:1fr 1fr;
@@ -592,6 +679,16 @@ footer{
   section{padding:70px 0;}
   .logo-img{height:60px;}
   .footer-brand .logo-img{height:70px;}
+
+  /* Vídeo: empilha no mobile */
+  .unidades-video-block{
+    grid-template-columns:1fr;
+    gap:30px;
+    text-align:center;
+    margin-bottom:40px;
+  }
+  .unidades-video{width:240px;}
+  .unidades-video-text ul li{justify-content:center;}
 }
 @media(max-width:480px){
   .fases-timeline{grid-template-columns:1fr;}
@@ -819,6 +916,50 @@ footer{
       <h2>Nossas <span class="highlight">unidades</span></h2>
       <p>Já estamos presentes em diversos condomínios da região do ABC Paulista.</p>
     </div>
+
+    <!-- VÍDEO (vertical) + TEXTO -->
+    <div class="unidades-video-block reveal">
+      <div class="unidades-video">
+        <video
+          id="ciziVideo"
+          poster="fotocontainer.png"
+          preload="metadata"
+          playsinline
+          controls
+        >
+          <source src="videocizi.mp4" type="video/mp4">
+          Seu navegador não suporta a reprodução de vídeo.
+        </video>
+
+        <button class="video-play" id="videoPlay" aria-label="Reproduzir vídeo">
+          <div class="video-play-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </button>
+      </div>
+
+      <div class="unidades-video-text">
+        <span class="section-tag">Nosso dia a dia</span>
+        <h3>Um mercado completo, <span class="highlight">do tamanho do seu condomínio</span></h3>
+        <p>Veja de perto como é a experiência CiZi Mercado Express: tecnologia, praticidade e produtos sempre à mão.</p>
+        <ul>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+            Aberto 24 horas, todos os dias
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+            Pagamento por totem, sem apps
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+            Reposição frequente de produtos
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- GRADE DE UNIDADES -->
     <div class="unidades-grid">
       <div class="unidade-card reveal"><div class="unidade-num">1</div><div class="unidade-info"><h4>Portal dos Clássicos</h4><p>Chácara Inglesa – SBC</p></div></div>
       <div class="unidade-card reveal"><div class="unidade-num">2</div><div class="unidade-info"><h4>Chácara Inglesa</h4><p>Chácara Inglesa – SBC</p></div></div>
@@ -837,6 +978,7 @@ footer{
       <div class="unidade-card reveal"><div class="unidade-num">15</div><div class="unidade-info"><h4>Itaparica</h4><p>Jd Alvorada – SA</p></div></div>
       <div class="unidade-card reveal"><div class="unidade-num">16</div><div class="unidade-info"><h4>Panorama</h4><p>Parque Espacial – SBC</p></div></div>
     </div>
+
     <div class="unidades-cta reveal">
       <h3>O próximo pode ser o <span>seu condomínio!</span></h3>
       <p>Entre em contato e leve a praticidade CiZi para os seus moradores.</p>
@@ -1059,6 +1201,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// ============ PLAY DO VÍDEO (seção Unidades) ============
+const video = document.getElementById('ciziVideo');
+const playBtn = document.getElementById('videoPlay');
+
+if (video && playBtn) {
+  playBtn.addEventListener('click', () => {
+    video.play();
+    playBtn.classList.add('hidden');
+  });
+
+  video.addEventListener('pause', () => playBtn.classList.remove('hidden'));
+  video.addEventListener('ended', () => playBtn.classList.remove('hidden'));
+  video.addEventListener('play',  () => playBtn.classList.add('hidden'));
+}
 </script>
 </body>
 </html>
