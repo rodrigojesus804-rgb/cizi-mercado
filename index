@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CiZi Mercado Express | Sempre Aberto, Sempre Perto!</title>
+<meta name="description" content="Mini mercados autônomos 24h para condomínios. Sem custo para o condomínio, cashback mensal e praticidade para os moradores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy: #1a1f4e;
+  --navy-dark: #0f1330;
+  --navy-light: #2a3070;
+  --yellow: #FFC72C;
+  --yellow-dark: #E5A800;
+  --white: #ffffff;
+  --gray-light: #f5f6fa;
+  --gray: #6b7280;
+  --text: #1f2937;
+  --shadow: 0 10px 30px rgba(26,31,78,0.10);
+  --shadow-lg: 0 20px 50px rgba(26,31,78,0.18);
+  --radius: 18px;
+  --transition: all .3s cubic-bezier(.4,0,.2,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Poppins', sans-serif;
+  color:var(--text);
+  background:var(--white);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+
+.container{max-width:1200px;margin:0 auto;padding:0 24px;}
+
+/* ============ HEADER ============ */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(26,31,78,0.85);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  transition:var(--transition);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+header.scrolled{
+  background:rgba(15,19,48,0.97);
+  box-shadow:0 4px 20px rgba(0,0,0,0.2);
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 0;
+}
+.logo{
+  display:flex;align-items:center;gap:10px;
+  color:var(--white);
+  font-weight:800;font-size:1.5rem;letter-spacing:.5px;
+}
+.logo-mark{
+  width:42px;height:42px;flex-shrink:0;
+}
+.logo-text{display:flex;flex-direction:column;line-height:1;}
+.logo-text .cizi{font-size:1.5rem;font-weight:800;color:var(--white);}
+.logo-text .cizi span{color:var(--yellow);}
+.logo-text .mercado{font-size:.55rem;letter-spacing:4px;font-weight:500;color:var(--yellow);margin-top:3px;}
+
+.nav-links{display:flex;gap:34px;align-items:center;}
+.nav-links a{
+  color:rgba(255,255,255,0.85);
+  font-size:.9rem;font-weight:500;
+  position:relative;transition:var(--transition);
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-6px;left:0;
+  width:0;height:2px;background:var(--yellow);
+  transition:var(--transition);
+}
+.nav-links a:hover{color:var(--yellow);}
+.nav-links a:hover::after{width:100%;}
+
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 26px;border-radius:50px;
+  font-weight:600;font-size:.9rem;
+  cursor:pointer;border:none;
+  transition:var(--transition);
+  font-family:inherit;
+}
+.btn-primary{
+  background:var(--yellow);color:var(--navy);
+}
+.btn-primary:hover{
+  background:var(--yellow-dark);transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(255,199,44,0.4);
+}
+.btn-outline{
+  background:transparent;color:var(--white);
+  border:2px solid rgba(255,255,255,0.3);
+}
+.btn-outline:hover{
+  border-color:var(--yellow);color:var(--yellow);
+  transform:translateY(-2px);
+}
+
+.menu-toggle{
+  display:none;background:none;border:none;cursor:pointer;
+  flex-direction:column;gap:5px;padding:5px;
+}
+.menu-toggle span{
+  width:26px;height:2.5px;background:var(--white);
+  border-radius:2px;transition:var(--transition);
+}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;
+  background:linear-gradient(135deg,#0f1330 0%, #1a1f4e 50%, #2a3070 100%);
+  overflow:hidden;padding-top:80px;
+}
+.hero::before{
+  content:'';position:absolute;
+  top:-20%;right:-15%;width:700px;height:700px;
+  background:radial-gradient(circle, rgba(255,199,44,0.18) 0%, transparent 65%);
+  border-radius:50%;
+}
+.hero::after{
+  content:'';position:absolute;
+  bottom:-30%;left:-10%;width:500px;height:500px;
+  background:radial-gradient(circle, rgba(255,199,44,0.10) 0%, transparent 65%);
+  border-radius:50%;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:center;
+  position:relative;z-index:2;width:100%;
+}
+.hero-content h1{
+  color:var(--white);
+  font-size:clamp(2rem, 5vw, 3.4rem);
+  font-weight:800;line-height:1.15;
+  margin-bottom:20px;
+}
+.hero-content h1 .highlight{color:var(--yellow);}
+.hero-content p{
+  color:rgba(255,255,255,0.8);
+  font-size:1.05rem;margin-bottom:32px;max-width:520px;
+}
+.hero-badges{
+  display:flex;flex-wrap:wrap;gap:14px;margin-bottom:36px;
+}
+.badge{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);
+  padding:8px 16px;border-radius:50px;
+  color:var(--white);font-size:.82rem;font-weight:500;
+  backdrop-filter:blur(10px);
+}
+.badge svg{width:16px;height:16px;fill:var(--yellow);flex-shrink:0;}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap;}
+
+.hero-visual{
+  position:relative;
+}
+.hero-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:24px;padding:16px;
+  backdrop-filter:blur(20px);
+  box-shadow:var(--shadow-lg);
+  animation:float 6s ease-in-out infinite;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-14px);}
+}
+.hero-card img{
+  border-radius:16px;width:100%;height:420px;object-fit:cover;
+}
+.hero-stat{
+  position:absolute;background:var(--white);
+  border-radius:16px;padding:16px 22px;
+  box-shadow:var(--shadow-lg);
+  display:flex;align-items:center;gap:12px;
+}
+.hero-stat .num{
+  font-size:1.6rem;font-weight:800;color:var(--navy);line-height:1;
+}
+.hero-stat .lbl{
+  font-size:.72rem;color:var(--gray);font-weight:500;line-height:1.3;
+}
+.hero-stat-1{top:30px;left:-30px;animation:float 5s ease-in-out infinite;}
+.hero-stat-2{bottom:40px;right:-30px;animation:float 7s ease-in-out infinite;}
+.hero-stat .icon{
+  width:44px;height:44px;border-radius:12px;
+  background:var(--yellow);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.hero-stat .icon svg{width:22px;height:22px;fill:var(--navy);}
+
+/* ============ SECTIONS ============ */
+section{padding:100px 0;}
+.section-head{text-align:center;max-width:720px;margin:0 auto 60px;}
+.section-tag{
+  display:inline-block;background:rgba(255,199,44,0.15);
+  color:var(--yellow-dark);font-size:.78rem;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  padding:6px 16px;border-radius:50px;margin-bottom:16px;
+}
+.section-head h2{
+  font-size:clamp(1.7rem, 3.5vw, 2.6rem);
+  font-weight:800;color:var(--navy);line-height:1.2;
+  margin-bottom:16px;
+}
+.section-head h2 .highlight{color:var(--yellow-dark);}
+.section-head p{color:var(--gray);font-size:1.02rem;}
+
+/* ============ SOBRE ============ */
+.about{background:var(--gray-light);}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:70px;align-items:center;
+}
+.about-visual{position:relative;}
+.about-visual img{
+  border-radius:var(--radius);box-shadow:var(--shadow-lg);
+  width:100%;height:480px;object-fit:cover;
+}
+.about-visual::before{
+  content:'';position:absolute;
+  top:-20px;left:-20px;width:100%;height:100%;
+  border:3px solid var(--yellow);border-radius:var(--radius);
+  z-index:-1;
+}
+.about-content h2{
+  font-size:clamp(1.7rem, 3vw, 2.4rem);
+  font-weight:800;color:var(--navy);margin-bottom:20px;line-height:1.2;
+}
+.about-content p{color:var(--gray);margin-bottom:18px;font-size:1rem;}
+.about-features{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:16px;margin-top:30px;
+}
+.about-feature{
+  display:flex;align-items:flex-start;gap:12px;
+  background:var(--white);padding:16px;border-radius:14px;
+  box-shadow:0 4px 15px rgba(26,31,78,0.06);
+  transition:var(--transition);
+}
+.about-feature:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.about-feature .ic{
+  width:38px;height:38px;border-radius:10px;
+  background:var(--navy);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.about-feature .ic svg{width:18px;height:18px;fill:var(--yellow);}
+.about-feature h4{font-size:.88rem;font-weight:700;color:var(--navy);}
+.about-feature p{font-size:.76rem;color:var(--gray);margin:0;}
+
+/* ============ DIFERENCIAIS ============ */
+.diferenciais-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+}
+.dif-card{
+  background:var(--white);border-radius:var(--radius);
+  padding:36px 28px;text-align:center;
+  box-shadow:0 6px 24px rgba(26,31,78,0.07);
+  border:1px solid rgba(26,31,78,0.05);
+  transition:var(--transition);position:relative;overflow:hidden;
+}
+.dif-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:var(--yellow);transform:scaleX(0);
+  transform-origin:left;transition:var(--transition);
+}
+.dif-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);}
+.dif-card:hover::before{transform:scaleX(1);}
+.dif-icon{
+  width:70px;height:70px;border-radius:20px;
+  background:linear-gradient(135deg, var(--navy), var(--navy-light));
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+}
+.dif-icon svg{width:32px;height:32px;fill:var(--yellow);}
+.dif-card h3{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:12px;}
+.dif-card p{font-size:.88rem;color:var(--gray);}
+
+/* ============ FASES ============ */
+.fases{background:var(--navy);position:relative;overflow:hidden;}
+.fases::before{
+  content:'';position:absolute;top:0;right:0;
+  width:500px;height:500px;
+  background:radial-gradient(circle, rgba(255,199,44,0.12), transparent 70%);
+  border-radius:50%;
+}
+.fases .section-head h2{color:var(--white);}
+.fases .section-head p{color:rgba(255,255,255,0.7);}
+.fases-timeline{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:20px;position:relative;z-index:2;
+}
+.fase{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:var(--radius);padding:30px 22px;
+  text-align:center;transition:var(--transition);
+  position:relative;
+}
+.fase:hover{
+  background:rgba(255,199,44,0.1);
+  border-color:rgba(255,199,44,0.4);
+  transform:translateY(-6px);
+}
+.fase-num{
+  width:50px;height:50px;border-radius:50%;
+  background:var(--yellow);color:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:1.2rem;margin:0 auto 16px;
+}
+.fase h4{color:var(--white);font-size:1rem;font-weight:700;margin-bottom:10px;}
+.fase p{color:rgba(255,255,255,0.65);font-size:.82rem;}
+
+/* ============ UNIDADES ============ */
+.unidades{background:var(--gray-light);}
+.unidades-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+}
+.unidade-card{
+  background:var(--white);border-radius:14px;
+  padding:20px;display:flex;align-items:flex-start;gap:14px;
+  box-shadow:0 4px 15px rgba(26,31,78,0.06);
+  transition:var(--transition);border-left:4px solid var(--yellow);
+}
+.unidade-card:hover{transform:translateX(6px);box-shadow:var(--shadow);}
+.unidade-num{
+  width:36px;height:36px;border-radius:10px;
+  background:var(--navy);color:var(--yellow);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:.85rem;flex-shrink:0;
+}
+.unidade-info h4{font-size:.85rem;font-weight:700;color:var(--navy);line-height:1.3;}
+.unidade-info p{font-size:.75rem;color:var(--gray);margin-top:2px;}
+.unidades-cta{
+  text-align:center;margin-top:50px;
+  background:linear-gradient(135deg,var(--navy),var(--navy-light));
+  border-radius:var(--radius);padding:50px 30px;
+  color:var(--white);
+}
+.unidades-cta h3{font-size:1.6rem;font-weight:800;margin-bottom:12px;}
+.unidades-cta h3 span{color:var(--yellow);}
+.unidades-cta p{color:rgba(255,255,255,0.75);margin-bottom:24px;}
+
+/* ============ CASHBACK ============ */
+.cashback-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:center;
+}
+.cashback-content h2{
+  font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;
+  color:var(--navy);margin-bottom:20px;line-height:1.2;
+}
+.cashback-content h2 .highlight{color:var(--yellow-dark);}
+.cashback-content p{color:var(--gray);margin-bottom:24px;}
+.cashback-list{display:flex;flex-direction:column;gap:16px;}
+.cashback-item{
+  display:flex;align-items:flex-start;gap:14px;
+  background:var(--gray-light);padding:18px;border-radius:14px;
+  transition:var(--transition);
+}
+.cashback-item:hover{background:#eef0f8;transform:translateX(4px);}
+.cashback-item .ic{
+  width:40px;height:40px;border-radius:12px;
+  background:var(--yellow);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.cashback-item .ic svg{width:20px;height:20px;fill:var(--navy);}
+.cashback-item h4{font-size:.95rem;font-weight:700;color:var(--navy);}
+.cashback-item p{font-size:.82rem;color:var(--gray);margin:0;}
+.cashback-visual{
+  background:linear-gradient(135deg,var(--navy),var(--navy-light));
+  border-radius:var(--radius);padding:50px 40px;
+  color:var(--white);text-align:center;
+  box-shadow:var(--shadow-lg);position:relative;overflow:hidden;
+}
+.cashback-visual::before{
+  content:'';position:absolute;top:-50px;right:-50px;
+  width:200px;height:200px;
+  background:radial-gradient(circle, rgba(255,199,44,0.25), transparent 70%);
+  border-radius:50%;
+}
+.cashback-visual .big{
+  font-size:3.5rem;font-weight:900;color:var(--yellow);
+  line-height:1;margin-bottom:8px;position:relative;
+}
+.cashback-visual .lbl{
+  font-size:.95rem;color:rgba(255,255,255,0.85);
+  margin-bottom:30px;position:relative;
+}
+.cashback-visual hr{
+  border:none;border-top:1px solid rgba(255,255,255,0.15);
+  margin:24px 0;position:relative;
+}
+.cashback-visual ul{text-align:left;position:relative;}
+.cashback-visual ul li{
+  display:flex;align-items:center;gap:10px;
+  color:rgba(255,255,255,0.85);font-size:.88rem;
+  padding:8px 0;
+}
+.cashback-visual ul li svg{width:16px;height:16px;fill:var(--yellow);flex-shrink:0;}
+
+/* ============ COMO COMPRAR ============ */
+.comprar-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:center;
+}
+.comprar-visual img{
+  border-radius:var(--radius);box-shadow:var(--shadow-lg);
+  width:100%;height:500px;object-fit:cover;
+}
+.comprar-content h2{
+  font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;
+  color:var(--navy);margin-bottom:20px;line-height:1.2;
+}
+.comprar-content h2 .highlight{color:var(--yellow-dark);}
+.comprar-content > p{color:var(--gray);margin-bottom:28px;}
+.steps{display:flex;flex-direction:column;gap:20px;}
+.step{
+  display:flex;gap:18px;align-items:flex-start;
+  transition:var(--transition);
+}
+.step:hover{transform:translateX(6px);}
+.step-num{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--yellow);color:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:1.1rem;flex-shrink:0;
+}
+.step h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.step p{font-size:.85rem;color:var(--gray);}
+.payment-logos{
+  display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;
+  align-items:center;
+}
+.payment-logos span{
+  background:var(--gray-light);padding:10px 16px;border-radius:10px;
+  font-size:.78rem;font-weight:600;color:var(--navy);
+  transition:var(--transition);
+}
+.payment-logos span:hover{background:var(--yellow);transform:translateY(-3px);}
+
+/* ============ CONTATO ============ */
+.contato{
+  background:linear-gradient(135deg,#0f1330 0%, #1a1f4e 100%);
+  color:var(--white);position:relative;overflow:hidden;
+}
+.contato::before{
+  content:'';position:absolute;bottom:-100px;right:-100px;
+  width:400px;height:400px;
+  background:radial-gradient(circle, rgba(255,199,44,0.15), transparent 70%);
+  border-radius:50%;
+}
+.contato .section-head h2{color:var(--white);}
+.contato .section-head p{color:rgba(255,255,255,0.75);}
+.contato-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:30px;position:relative;z-index:2;
+  max-width:800px;margin:0 auto;
+}
+.contato-card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:var(--radius);padding:34px;
+  transition:var(--transition);
+  backdrop-filter:blur(10px);
+}
+.contato-card:hover{
+  background:rgba(255,255,255,0.1);
+  border-color:rgba(255,199,44,0.4);
+  transform:translateY(-6px);
+}
+.contato-avatar{
+  width:70px;height:70px;border-radius:50%;
+  background:var(--yellow);display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;font-weight:800;color:var(--navy);
+  margin-bottom:18px;
+}
+.contato-card h4{font-size:1.15rem;font-weight:700;margin-bottom:6px;}
+.contato-card .role{
+  font-size:.8rem;color:var(--yellow);font-weight:600;
+  text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;
+}
+.contato-card a{
+  display:flex;align-items:center;gap:10px;
+  color:rgba(255,255,255,0.85);font-size:.9rem;
+  padding:8px 0;transition:var(--transition);
+}
+.contato-card a:hover{color:var(--yellow);transform:translateX(4px);}
+.contato-card a svg{width:18px;height:18px;fill:var(--yellow);flex-shrink:0;}
+
+/* ============ FOOTER ============ */
+footer{
+  background:var(--navy-dark);color:rgba(255,255,255,0.6);
+  padding:50px 0 30px;border-top:1px solid rgba(255,255,255,0.06);
+}
+.footer-grid{
+  display:grid;grid-template-columns:2fr 1fr 1fr;
+  gap:40px;margin-bottom:40px;
+}
+.footer-brand .logo{margin-bottom:16px;}
+.footer-brand p{font-size:.85rem;max-width:340px;}
+.footer-col h4{
+  color:var(--white);font-size:.9rem;font-weight:700;
+  margin-bottom:16px;letter-spacing:1px;
+}
+.footer-col a{
+  display:block;font-size:.85rem;padding:5px 0;
+  transition:var(--transition);
+}
+.footer-col a:hover{color:var(--yellow);transform:translateX(4px);}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding-top:24px;display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:12px;
+  font-size:.8rem;
+}
+.footer-bottom .highlight{color:var(--yellow);font-weight:600;}
+
+/* ============ WHATSAPP FLOAT ============ */
+.whatsapp-float{
+  position:fixed;bottom:24px;right:24px;z-index:999;
+  width:60px;height:60px;border-radius:50%;
+  background:#25D366;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(37,211,102,0.4);
+  transition:var(--transition);animation:pulse 2.5s infinite;
+}
+.whatsapp-float:hover{transform:scale(1.1);}
+.whatsapp-float svg{width:32px;height:32px;fill:white;}
+@keyframes pulse{
+  0%,100%{box-shadow:0 8px 24px rgba(37,211,102,0.4);}
+  50%{box-shadow:0 8px 24px rgba(37,211,102,0.7), 0 0 0 12px rgba(37,211,102,0.1);}
+}
+
+/* ============ REVEAL ANIMATION ============ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.active{opacity:1;transform:translateY(0);}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:40px;text-align:center;}
+  .hero-content p{margin-left:auto;margin-right:auto;}
+  .hero-badges,.hero-buttons{justify-content:center;}
+  .hero-visual{max-width:520px;margin:0 auto;}
+  .about-grid,.cashback-grid,.comprar-grid{grid-template-columns:1fr;gap:40px;}
+  .diferenciais-grid{grid-template-columns:repeat(2,1fr);}
+  .fases-timeline{grid-template-columns:repeat(3,1fr);}
+  .unidades-grid{grid-template-columns:repeat(2,1fr);}
+  .contato-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  .nav-links{
+    position:fixed;top:0;right:-100%;height:100vh;width:280px;
+    background:var(--navy-dark);flex-direction:column;
+    padding:100px 30px;gap:24px;
+    transition:var(--transition);box-shadow:-10px 0 30px rgba(0,0,0,0.3);
+  }
+  .nav-links.active{right:0;}
+  .nav-links a{font-size:1rem;}
+  .menu-toggle{display:flex;}
+  .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+  .menu-toggle.active span:nth-child(2){opacity:0;}
+  .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px);}
+  .nav .btn{display:none;}
+  .diferenciais-grid{grid-template-columns:1fr;}
+  .fases-timeline{grid-template-columns:1fr 1fr;}
+  .unidades-grid{grid-template-columns:1fr;}
+  .about-features{grid-template-columns:1fr;}
+  .hero-stat-1{top:10px;left:10px;padding:10px 14px;}
+  .hero-stat-2{bottom:10px;right:10px;padding:10px 14px;}
+  .hero-stat .num{font-size:1.2rem;}
+  .hero-stat .icon{width:36px;height:36px;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+  section{padding:70px 0;}
+}
+@media(max-width:480px){
+  .fases-timeline{grid-template-columns:1fr;}
+  .hero-card img{height:300px;}
+  .cashback-visual .big{font-size:2.5rem;}
+  .contato-card{padding:24px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="header">
+  <div class="container nav">
+    <a href="#home" class="logo">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="35" r="18" fill="#FFC72C"/>
+        <path d="M50 17 C50 8, 58 5, 65 8 C60 12, 58 18, 58 22 C55 19, 52 17, 50 17Z" fill="#FFC72C"/>
+        <path d="M15 50 Q15 85 50 85 Q85 85 85 50 L70 50 Q70 70 50 70 Q30 70 30 50 Z" fill="#ffffff"/>
+        <circle cx="50" cy="50" r="14" fill="#1a1f4e"/>
+        <circle cx="50" cy="50" r="10" fill="#FFC72C"/>
+      </svg>
+      <div class="logo-text">
+        <span class="cizi">Ci<span>Z</span>i</span>
+        <span class="mercado">MERCADO</span>
+      </div>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#sobre">Sobre</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#como-funciona">Como Funciona</a>
+      <a href="#unidades">Unidades</a>
+      <a href="#cashback">Cashback</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="#contato" class="btn btn-primary">Quero no meu condomínio</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="badge" style="margin-bottom:20px;display:inline-flex;">
+        <svg viewBox="0 0 24 24"><path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8Z"/></svg>
+        Mais de 10 anos de experiência
+      </div>
+      <h1>Sempre aberto,<br><span class="highlight">sempre perto!</span></h1>
+      <p>Mini mercados autônomos 24h para o seu condomínio. Praticidade, segurança e qualidade de vida para os moradores — sem nenhum custo para o condomínio.</p>
+      <div class="hero-badges">
+        <div class="badge">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm.5 5v5.3l4.5 2.7-.8 1.3L11 13V7h1.5z"/></svg>
+          Aberto 24 horas
+        </div>
+        <div class="badge">
+          <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+          Sem custo para o condomínio
+        </div>
+        <div class="badge">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4z"/></svg>
+          Cashback mensal
+        </div>
+      </div>
+      <div class="hero-buttons">
+        <a href="#contato" class="btn btn-primary">
+          Solicitar Proposta
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8.6 16.6L13.2 12 8.6 7.4 10 6l6 6-6 6z"/></svg>
+        </a>
+        <a href="#sobre" class="btn btn-outline">Saiba Mais</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=800&q=80" alt="CiZi Mercado Express">
+      </div>
+      <div class="hero-stat hero-stat-1">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm.5 5v5.3l4.5 2.7-.8 1.3L11 13V7h1.5z"/></svg>
+        </div>
+        <div>
+          <div class="num">24h</div>
+          <div class="lbl">Todos os dias</div>
+        </div>
+      </div>
+      <div class="hero-stat hero-stat-2">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg>
+        </div>
+        <div>
+          <div class="num">+16</div>
+          <div class="lbl">Unidades ativas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOBRE ============ -->
+<section class="about" id="sobre">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?w=800&q=80" alt="Interior CiZi Mercado">
+      </div>
+      <div class="about-content reveal">
+        <span class="section-tag">Quem Somos</span>
+        <h2>Uma rede com mais de <span style="color:var(--yellow-dark)">10 anos</span> de tradição</h2>
+        <p>A CiZi é uma rede com duas lojas físicas e mais de 16 unidades de mercados autônomos, levando praticidade, segurança e valorização para diversos condomínios.</p>
+        <p>Lançamos uma versão compacta, porém completa da nossa marca para os condomínios: a <strong>CiZi Mercado Express</strong>. Um conceito prático e inovador, com sistema autônomo, operando 24 horas por dia, 7 dias por semana — climatizado, seguro e conveniente.</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="ic"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg></div>
+            <div><h4>Produtos Frescos</h4><p>Abastecimento frequente</p></div>
+          </div>
+          <div class="about-feature">
+            <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4z"/></svg></div>
+            <div><h4>100% Seguro</h4><p>Monitoramento 24h</p></div>
+          </div>
+          <div class="about-feature">
+            <div class="ic"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+            <div><h4>Preços Competitivos</h4><p>Sem intermediação de franquia</p></div>
+          </div>
+          <div class="about-feature">
+            <div class="ic"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg></div>
+            <div><h4>Vários Pagamentos</h4><p>Pix, débito, crédito e voucher</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFERENCIAIS ============ -->
+<section id="diferenciais">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Por que escolher</span>
+      <h2>Sabe qual o <span class="highlight">diferencial?</span></h2>
+      <p>Muito mais que um mini mercado, uma solução completa para o seu condomínio.</p>
+    </div>
+    <div class="diferenciais-grid">
+      <div class="dif-card reveal">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        </div>
+        <h3>Abastecimento Frequente</h3>
+        <p>Produtos sempre frescos e de alta qualidade, com reposição ao menos duas vezes por semana.</p>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        </div>
+        <h3>Sem Custo para o Condomínio</h3>
+        <p>Todo o custo de implementação é por nossa conta. Seu condomínio não terá gasto nenhum.</p>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+        </div>
+        <h3>Preços Competitivos</h3>
+        <p>Não temos intermediação de franquia, garantindo assim preços mais acessíveis para os moradores.</p>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        </div>
+        <h3>Operação 24/7</h3>
+        <p>Sistema autônomo que funciona 24 horas por dia, 7 dias por semana, sem necessidade de funcionários.</p>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+        </div>
+        <h3>Todas as Formas de Pagamento</h3>
+        <p>Aceitamos Pix, débito, crédito, vale alimentação e refeição. Pagamento por totem, sem aplicativos.</p>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <h3>Valorização do Condomínio</h3>
+        <p>Um diferencial que agrega valor ao empreendimento e melhora a qualidade de vida dos moradores.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FASES ============ -->
+<section class="fases" id="como-funciona">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Forma de Atuação</span>
+      <h2>Como <span style="color:var(--yellow)">funciona?</span></h2>
+      <p>Um processo simples e transparente, do primeiro contato à operação completa.</p>
+    </div>
+    <div class="fases-timeline">
+      <div class="fase reveal">
+        <div class="fase-num">1</div>
+        <h4>Análise</h4>
+        <p>Visita ao condomínio para conhecer e sugerir opções de local para instalação.</p>
+      </div>
+      <div class="fase reveal">
+        <div class="fase-num">2</div>
+        <h4>Apresentação</h4>
+        <p>Projeto 3D elaborado por profissional especializado para apresentação aos moradores e síndico.</p>
+      </div>
+      <div class="fase reveal">
+        <div class="fase-num">3</div>
+        <h4>Proposta</h4>
+        <p>Enviamos uma proposta de parceria totalmente personalizada para o condomínio.</p>
+      </div>
+      <div class="fase reveal">
+        <div class="fase-num">4</div>
+        <h4>Implantação</h4>
+        <p>Em até 60 dias o mini mercado é instalado, totalmente personalizado.</p>
+      </div>
+      <div class="fase reveal">
+        <div class="fase-num">5</div>
+        <h4>Atuação</h4>
+        <p>Reposição semanal de produtos. Seu mini mercado sempre abastecido.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UNIDADES ============ -->
+<section class="unidades" id="unidades">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Onde Estamos</span>
+      <h2>Nossas <span class="highlight">unidades</span></h2>
+      <p>Já estamos presentes em diversos condomínios da região do ABC Paulista.</p>
+    </div>
+    <div class="unidades-grid">
+      <div class="unidade-card reveal"><div class="unidade-num">1</div><div class="unidade-info"><h4>Portal dos Clássicos</h4><p>Chácara Inglesa – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">2</div><div class="unidade-info"><h4>Chácara Inglesa</h4><p>Chácara Inglesa – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">3</div><div class="unidade-info"><h4>Primavera</h4><p>Assunção – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">4</div><div class="unidade-info"><h4>Residencial Itália</h4><p>Assunção – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">5</div><div class="unidade-info"><h4>Quinta da Boa Vista</h4><p>Nova Petropólis – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">6</div><div class="unidade-info"><h4>Liguria</h4><p>Demarchi – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">7</div><div class="unidade-info"><h4>Isla – Cancun</h4><p>Sta Maria – SCS</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">8</div><div class="unidade-info"><h4>Isla – Aruba</h4><p>Sta Maria – SCS</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">9</div><div class="unidade-info"><h4>Portugal</h4><p>Assunção – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">10</div><div class="unidade-info"><h4>Motiró</h4><p>Centro – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">11</div><div class="unidade-info"><h4>Caminho do Mar</h4><p>Rudge Ramos – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">12</div><div class="unidade-info"><h4>Spetacullo Patriani</h4><p>Jd do Mar – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">13</div><div class="unidade-info"><h4>Chácara dos</h4><p>Região – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">14</div><div class="unidade-info"><h4>Sollarium Park</h4><p>Centro – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">15</div><div class="unidade-info"><h4>Itaparica</h4><p>Jd Alvorada – SA</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">16</div><div class="unidade-info"><h4>Panorama</h4><p>Parque Espacial – SBC</p></div></div>
+    </div>
+    <div class="unidades-cta reveal">
+      <h3>O próximo pode ser o <span>seu condomínio!</span></h3>
+      <p>Entre em contato e leve a praticidade CiZi para os seus moradores.</p>
+      <a href="#contato" class="btn btn-primary">Quero uma unidade</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASHBACK ============ -->
+<section id="cashback">
+  <div class="container">
+    <div class="cashback-grid">
+      <div class="cashback-content reveal">
+        <span class="section-tag">Benefício Exclusivo</span>
+        <h2>Seu condomínio recebe <span class="highlight">cashback mensal</span></h2>
+        <p>Seu condomínio terá um retorno mensal baseado no faturamento bruto do mini mercado. Utilize o cashback para realizar outras benfeitorias no condomínio!</p>
+        <div class="cashback-list">
+          <div class="cashback-item">
+            <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg></div>
+            <div><h4>Retorno sobre faturamento bruto</h4><p>Percentual a combinar, repassado até o dia 10 do mês subsequente.</p></div>
+          </div>
+          <div class="cashback-item">
+            <div class="ic"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
+            <div><h4>Relatório mensal de acompanhamento</h4><p>Transparência total com envio de relatórios para o condomínio.</p></div>
+          </div>
+          <div class="cashback-item">
+            <div class="ic"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+            <div><h4>Subsidie despesas de energia elétrica</h4><p>Use o cashback para cobrir custos operacionais do condomínio.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="cashback-visual reveal">
+        <div class="big">R$ 0,00</div>
+        <div class="lbl">de custo para o seu condomínio</div>
+        <hr>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Implementação 100% por nossa conta</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Loja sob medida para o espaço</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Reposição de produtos 2x por semana</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Fiscalização e controle de qualidade</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Suporte 24h via WhatsApp</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Sem multa de rescisão contratual</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO COMPRAR ============ -->
+<section class="comprar" style="background:var(--gray-light);" id="como-comprar">
+  <div class="container">
+    <div class="comprar-grid">
+      <div class="comprar-visual reveal">
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="Totem de autoatendimento CiZi">
+      </div>
+      <div class="comprar-content reveal">
+        <span class="section-tag">Experiência de Compra</span>
+        <h2>Como <span class="highlight">comprar?</span></h2>
+        <p>O sistema de compra é <strong>fácil, rápido e seguro</strong>. Veja como é simples:</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div><h4>Passe o produto no leitor</h4><p>Utilize o leitor de código de barras do totem de autoatendimento.</p></div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div><h4>Confira quantidade e valor</h4><p>Verifique os itens e o valor total da sua compra na tela.</p></div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div><h4>Escolha a forma de pagamento</h4><p>Pague no débito, crédito, Pix ou voucher. Sem baixar aplicativos!</p></div>
+          </div>
+        </div>
+        <div class="payment-logos">
+          <span>VISA</span>
+          <span>Mastercard</span>
+          <span>Elo</span>
+          <span>Alelo</span>
+          <span>American Express</span>
+          <span>Hipercard</span>
+          <span>Diners Club</span>
+          <span>Pix</span>
+          <span>Vale Refeição</span>
+          <span>Vale Alimentação</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section class="contato" id="contato">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Fale Conosco</span>
+      <h2>Vamos levar a CiZi para o seu condomínio?</h2>
+      <p>Entre em contato com nossos sócios proprietários e solicite uma proposta personalizada.</p>
+    </div>
+    <div class="contato-grid">
+      <div class="contato-card reveal">
+        <div class="contato-avatar">CS</div>
+        <h4>Ciszilene Cristina</h4>
+        <div class="role">Sócia Proprietária</div>
+        <a href="mailto:ciszilima@hotmail.com">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          ciszilima@hotmail.com
+        </a>
+        <a href="https://wa.me/5511974522634" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.5 0-3-.4-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.4 15 4 13.5 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.8-1.1-.7-.6-1.1-1.3-1.3-1.5-.1-.2 0-.4.1-.5.1-.1.2-.3.3-.4.1-.1.2-.2.2-.4 0-.1 0-.3-.1-.4-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.1-.3-.2-.5-.3z"/></svg>
+          11 97452-2634
+        </a>
+        <a href="https://instagram.com/mercadocizisbc" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1 5.7.1 4.9.3 4.1.6c-.8.3-1.5.7-2.2 1.4C1.2 2.7.8 3.4.5 4.2.3 5 .1 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.3 2.1.6 2.9.3.8.7 1.5 1.4 2.2.7.7 1.4 1.1 2.2 1.4.8.3 1.6.5 2.9.6 1.3.1 1.7.1 4.9.1s3.6 0 4.9-.1c1.3-.1 2.1-.3 2.9-.6.8-.3 1.5-.7 2.2-1.4.7-.7 1.1-1.4 1.4-2.2.3-.8.5-1.6.6-2.9.1-1.3.1-1.7.1-4.9s0-3.6-.1-4.9c-.1-1.3-.3-2.1-.6-2.9-.3-.8-.7-1.5-1.4-2.2C21.3 1.2 20.6.8 19.8.5c-.8-.3-1.6-.5-2.9-.6C15.6 0 15.3 0 12 0zm0 5.8c-3.4 0-6.2 2.8-6.2 6.2s2.8 6.2 6.2 6.2 6.2-2.8 6.2-6.2-2.8-6.2-6.2-6.2zm0 10.2c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm7.8-10.4c0 .8-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4.6-1.4 1.4-1.4 1.4.6 1.4 1.4z"/></svg>
+          @mercadocizisbc
+        </a>
+      </div>
+      <div class="contato-card reveal">
+        <div class="contato-avatar">MA</div>
+        <h4>Maciel Almondes</h4>
+        <div class="role">Sócio Proprietário</div>
+        <a href="mailto:macielap@icloud.com">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          macielap@icloud.com
+        </a>
+        <a href="https://wa.me/5511974780466" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.5 0-3-.4-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.4 15 4 13.5 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.8-1.1-.7-.6-1.1-1.3-1.3-1.5-.1-.2 0-.4.1-.5.1-.1.2-.3.3-.4.1-.1.2-.2.2-.4 0-.1 0-.3-.1-.4-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.1-.3-.2-.5-.3z"/></svg>
+          11 97478-0466
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="35" r="18" fill="#FFC72C"/>
+            <path d="M50 17 C50 8, 58 5, 65 8 C60 12, 58 18, 58 22 C55 19, 52 17, 50 17Z" fill="#FFC72C"/>
+            <path d="M15 50 Q15 85 50 85 Q85 85 85 50 L70 50 Q70 70 50 70 Q30 70 30 50 Z" fill="#ffffff"/>
+            <circle cx="50" cy="50" r="14" fill="#1a1f4e"/>
+            <circle cx="50" cy="50" r="10" fill="#FFC72C"/>
+          </svg>
+          <div class="logo-text">
+            <span class="cizi">Ci<span>Z</span>i</span>
+            <span class="mercado">MERCADO</span>
+          </div>
+        </div>
+        <p>Mini mercados autônomos 24h para condomínios. Praticidade, segurança e qualidade de vida para os moradores. Sempre aberto, sempre perto!</p>
+      </div>
+      <div class="footer-col">
+        <h4>NAVEGAÇÃO</h4>
+        <a href="#sobre">Sobre Nós</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#como-funciona">Como Funciona</a>
+        <a href="#unidades">Unidades</a>
+        <a href="#cashback">Cashback</a>
+      </div>
+      <div class="footer-col">
+        <h4>CONTATO</h4>
+        <a href="mailto:ciszilima@hotmail.com">ciszilima@hotmail.com</a>
+        <a href="mailto:macielap@icloud.com">macielap@icloud.com</a>
+        <a href="https://wa.me/5511974522634" target="_blank">(11) 97452-2634</a>
+        <a href="https://wa.me/5511974780466" target="_blank">(11) 97478-0466</a>
+        <a href="https://instagram.com/mercadocizisbc" target="_blank">@mercadocizisbc</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 CiZi Mercado Express. Todos os direitos reservados.</div>
+      <div>Feito com <span class="highlight">♥</span> para transformar condomínios</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOAT ============ -->
+<a href="https://wa.me/5511974522634?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20CiZi%20Mercado%20Express." class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.5 0-3-.4-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.4 15 4 13.5 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.8-1.1-.7-.6-1.1-1.3-1.3-1.5-.1-.2 0-.4.1-.5.1-.1.2-.3.3-.4.1-.1.2-.2.2-.4 0-.1 0-.3-.1-.4-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<script>
+// Header scroll effect
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile menu toggle
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navLinks.classList.toggle('active');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    menuToggle.classList.remove('active');
+    navLinks.classList.remove('active');
+  });
+});
+
+// Scroll reveal
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+revealElements.forEach(el => revealObserver.observe(el));
+
+// Stagger animation for grids
+document.querySelectorAll('.diferenciais-grid .dif-card, .unidades-grid .unidade-card, .fases-timeline .fase').forEach((el, i) => {
+  el.style.transitionDelay = `${(i % 4) * 0.08}s`;
+});
+
+// Smooth scroll for older browsers
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
