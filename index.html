@@ -635,6 +635,82 @@ footer{
   50%{box-shadow:0 8px 24px rgba(37,211,102,0.7), 0 0 0 12px rgba(37,211,102,0.1);}
 }
 
+/* ============ VÍDEO MODAL DAS UNIDADES ============ */
+.unidade-card.has-video{cursor:pointer;}
+.unidade-card.has-video:focus-visible{outline:3px solid var(--yellow-dark);outline-offset:2px;}
+
+.unidade-play{
+  margin-left:auto;
+  width:32px;height:32px;border-radius:50%;
+  background:var(--yellow);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:var(--transition);
+  align-self:center;
+}
+.unidade-play svg{width:14px;height:14px;fill:var(--navy);margin-left:2px;}
+.unidade-card.has-video:hover .unidade-play{
+  transform:scale(1.15);
+  box-shadow:0 6px 16px rgba(255,199,44,0.55);
+}
+
+.video-modal{
+  position:fixed;inset:0;z-index:2000;
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .3s ease, visibility .3s ease;
+}
+.video-modal.active{opacity:1;visibility:visible;pointer-events:auto;}
+
+.video-modal-backdrop{
+  position:absolute;inset:0;
+  background:rgba(8,11,28,0.88);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+
+.video-modal-box{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;align-items:center;
+  max-width:100%;
+  transform:scale(.93);
+  transition:transform .35s cubic-bezier(.4,0,.2,1);
+}
+.video-modal.active .video-modal-box{transform:scale(1);}
+
+.video-modal-player{
+  position:relative;border-radius:18px;overflow:hidden;
+  background:#000;line-height:0;
+  border:4px solid var(--yellow);
+  box-shadow:0 30px 80px rgba(0,0,0,0.65);
+}
+.video-modal-player video{
+  display:block;
+  max-width:min(92vw, 1000px);
+  max-height:72vh;
+  width:auto;height:auto;
+  background:#000;
+}
+
+.video-modal-caption{margin-top:18px;text-align:center;padding:0 10px;}
+.video-modal-caption h4{font-size:1.05rem;font-weight:700;color:var(--yellow);}
+.video-modal-caption p{font-size:.83rem;color:rgba(255,255,255,0.75);}
+
+.video-modal-close{
+  position:absolute;top:18px;right:18px;z-index:3;
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.22);
+  color:#fff;font-size:1.7rem;line-height:1;
+  cursor:pointer;font-family:inherit;
+  display:flex;align-items:center;justify-content:center;
+  transition:var(--transition);
+}
+.video-modal-close:hover{
+  background:var(--yellow);color:var(--navy);
+  transform:rotate(90deg);
+}
+
 /* ============ REVEAL ANIMATION ============ */
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease, transform .7s ease;}
 .reveal.active{opacity:1;transform:translateY(0);}
@@ -689,6 +765,11 @@ footer{
   }
   .unidades-video{width:240px;}
   .unidades-video-text ul li{justify-content:center;}
+
+  /* Modal */
+  .video-modal{padding:16px;}
+  .video-modal-player video{max-height:58vh;}
+  .video-modal-close{top:12px;right:12px;width:38px;height:38px;font-size:1.4rem;}
 }
 @media(max-width:480px){
   .fases-timeline{grid-template-columns:1fr;}
@@ -1151,6 +1232,21 @@ footer{
   <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.5 0-3-.4-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.4 15 4 13.5 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.8-1.1-.7-.6-1.1-1.3-1.3-1.5-.1-.2 0-.4.1-.5.1-.1.2-.3.3-.4.1-.1.2-.2.2-.4 0-.1 0-.3-.1-.4-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.1-.3-.2-.5-.3z"/></svg>
 </a>
 
+<!-- ============ MODAL DE VÍDEO DAS UNIDADES ============ -->
+<div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Vídeo da unidade">
+  <div class="video-modal-backdrop" data-close></div>
+  <button class="video-modal-close" data-close aria-label="Fechar vídeo">&times;</button>
+  <div class="video-modal-box">
+    <div class="video-modal-player">
+      <video id="modalVideo" controls playsinline preload="metadata"></video>
+    </div>
+    <div class="video-modal-caption">
+      <h4 id="modalTitulo"></h4>
+      <p id="modalLocal"></p>
+    </div>
+  </div>
+</div>
+
 <script>
 // Header scroll effect
 const header = document.getElementById('header');
@@ -1216,6 +1312,104 @@ if (video && playBtn) {
   video.addEventListener('ended', () => playBtn.classList.remove('hidden'));
   video.addEventListener('play',  () => playBtn.classList.add('hidden'));
 }
+
+/* =========================================================
+   VÍDEOS DAS UNIDADES
+   ---------------------------------------------------------
+   1) Coloque os arquivos na MESMA PASTA do index.html (raiz).
+   2) A chave é EXATAMENTE o nome que está no <h4> do card.
+   3) O valor é o nome do arquivo SEM extensão.
+   4) Se o arquivo tiver outro nome, basta ajustar aqui.
+
+   Ex.: "Liguria": "liguria"  ->  liguria.mp4
+   ========================================================= */
+const VIDEOS_UNIDADES = {
+  "Portal dos Clássicos": "portaldasflores",
+  "Primavera":            "primavera",
+  "Liguria":              "liguria",
+  "Portugal":             "portugal",
+  "Motiró":               "motiro",
+  "Chácara dos":          "chacaradospassaros",
+  "Itaparica":            "itaparica",
+  "Panorama":             "panorama"
+};
+
+// Extensões dos arquivos
+const VIDEO_EXT  = ".mp4";   // troque para ".mov" se for o caso
+const POSTER_EXT = ".jpg";   // capa opcional (use null se não tiver)
+
+const modal       = document.getElementById('videoModal');
+const modalVideo  = document.getElementById('modalVideo');
+const modalTitulo = document.getElementById('modalTitulo');
+const modalLocal  = document.getElementById('modalLocal');
+
+function abrirVideo(nome, local, base){
+  modalTitulo.textContent = nome;
+  modalLocal.textContent  = local;
+
+  if (POSTER_EXT) {
+    modalVideo.setAttribute('poster', base + POSTER_EXT);
+  } else {
+    modalVideo.removeAttribute('poster');
+  }
+
+  modalVideo.src = base + VIDEO_EXT;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  modalVideo.play().catch(() => {}); // navegador pode bloquear autoplay
+}
+
+function fecharVideo(){
+  modalVideo.pause();
+  modalVideo.removeAttribute('src');
+  modalVideo.removeAttribute('poster');
+  modalVideo.load();                 // limpa o buffer
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Se o vídeo não carregar, avisa qual arquivo faltou
+modalVideo.addEventListener('error', () => {
+  if (!modalVideo.getAttribute('src')) return;
+  modalLocal.textContent = 'Não foi possível carregar o vídeo. Verifique se o arquivo existe na pasta raiz.';
+});
+
+// Transforma os cards em botões clicáveis
+document.querySelectorAll('.unidade-card').forEach(card => {
+  const h4 = card.querySelector('h4');
+  const p  = card.querySelector('p');
+  const nome = h4 ? h4.textContent.trim() : '';
+  const base = VIDEOS_UNIDADES[nome];
+  if (!base) return; // card sem vídeo continua normal
+
+  card.classList.add('has-video');
+  card.setAttribute('role', 'button');
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('aria-label', 'Ver vídeo da unidade ' + nome);
+
+  const badge = document.createElement('div');
+  badge.className = 'unidade-play';
+  badge.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+  card.appendChild(badge);
+
+  const abrir = () => abrirVideo(nome, p ? p.textContent.trim() : '', base);
+
+  card.addEventListener('click', abrir);
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      abrir();
+    }
+  });
+});
+
+// Fechar: botão X, clique no fundo ou tecla ESC
+document.querySelectorAll('[data-close]').forEach(el => {
+  el.addEventListener('click', fecharVideo);
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.classList.contains('active')) fecharVideo();
+});
 </script>
 </body>
 </html>
