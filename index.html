@@ -40,153 +40,6 @@ ul{list-style:none;}
 
 .container{max-width:1200px;margin:0 auto;padding:0 24px;}
 
-/* ============ TELA DE BLOQUEIO ============ */
-.block-screen{
-  position:fixed;inset:0;z-index:99999;
-  background:linear-gradient(135deg,#0a0d24 0%, #1a1f4e 50%, #2a3070 100%);
-  display:flex;align-items:center;justify-content:center;
-  padding:24px;overflow:hidden;
-}
-.block-screen::before{
-  content:'';position:absolute;
-  top:-20%;right:-15%;width:700px;height:700px;
-  background:radial-gradient(circle, rgba(255,199,44,0.20) 0%, transparent 65%);
-  border-radius:50%;
-  animation:floatBlob 12s ease-in-out infinite;
-}
-.block-screen::after{
-  content:'';position:absolute;
-  bottom:-30%;left:-10%;width:500px;height:500px;
-  background:radial-gradient(circle, rgba(255,199,44,0.12) 0%, transparent 65%);
-  border-radius:50%;
-  animation:floatBlob 15s ease-in-out infinite reverse;
-}
-@keyframes floatBlob{
-  0%,100%{transform:translate(0,0) scale(1);}
-  50%{transform:translate(-30px,30px) scale(1.08);}
-}
-
-.block-screen-content{
-  position:relative;z-index:2;
-  text-align:center;max-width:520px;width:100%;
-  animation:fadeInBlock .8s ease;
-}
-@keyframes fadeInBlock{
-  from{opacity:0;transform:translateY(30px);}
-  to{opacity:1;transform:translateY(0);}
-}
-
-.block-logo{
-  width:200px;max-width:70%;height:auto;
-  margin:0 auto 36px;
-  filter:drop-shadow(0 10px 40px rgba(255,199,44,0.35));
-  animation:floatLogo 4s ease-in-out infinite;
-}
-@keyframes floatLogo{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
-}
-
-.block-icon{
-  width:90px;height:90px;border-radius:50%;
-  background:rgba(255,199,44,0.12);
-  border:2px solid rgba(255,199,44,0.35);
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 28px;
-  position:relative;
-  animation:pulseLock 2.4s ease-in-out infinite;
-}
-.block-icon::before{
-  content:'';position:absolute;inset:-8px;border-radius:50%;
-  border:1px solid rgba(255,199,44,0.25);
-  animation:pulseRing 2.4s ease-out infinite;
-}
-.block-icon::after{
-  content:'';position:absolute;inset:-16px;border-radius:50%;
-  border:1px solid rgba(255,199,44,0.15);
-  animation:pulseRing 2.4s ease-out infinite .4s;
-}
-.block-icon svg{
-  width:40px;height:40px;fill:var(--yellow);
-}
-@keyframes pulseLock{
-  0%,100%{transform:scale(1);}
-  50%{transform:scale(1.05);}
-}
-@keyframes pulseRing{
-  0%{transform:scale(.9);opacity:1;}
-  100%{transform:scale(1.4);opacity:0;}
-}
-
-.block-title{
-  font-size:clamp(1.4rem, 3vw, 2rem);
-  font-weight:800;color:var(--white);
-  line-height:1.25;margin-bottom:14px;
-  letter-spacing:-.3px;
-}
-.block-title .highlight{color:var(--yellow);}
-
-.block-text{
-  font-size:1rem;
-  color:rgba(255,255,255,0.75);
-  line-height:1.7;margin-bottom:32px;
-  max-width:420px;margin-left:auto;margin-right:auto;
-}
-
-.block-divider{
-  display:flex;align-items:center;justify-content:center;gap:14px;
-  margin-bottom:28px;
-}
-.block-divider span{
-  width:60px;height:1px;
-  background:linear-gradient(90deg, transparent, rgba(255,199,44,0.5), transparent);
-}
-.block-divider svg{
-  width:16px;height:16px;fill:var(--yellow);opacity:.7;
-}
-
-.block-footer{
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  font-size:.82rem;color:rgba(255,255,255,0.5);
-}
-.block-footer a{
-  color:var(--yellow);font-weight:600;
-  transition:var(--transition);
-  display:inline-flex;align-items:center;gap:6px;
-}
-.block-footer a:hover{color:var(--white);transform:translateX(3px);}
-.block-footer a svg{
-  width:14px;height:14px;fill:currentColor;
-}
-
-.block-status{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(255,199,44,0.1);
-  border:1px solid rgba(255,199,44,0.25);
-  padding:8px 18px;border-radius:50px;
-  font-size:.78rem;font-weight:600;
-  color:var(--yellow);
-  margin-bottom:24px;
-  letter-spacing:.5px;
-  text-transform:uppercase;
-}
-.block-status .dot{
-  width:8px;height:8px;border-radius:50%;
-  background:var(--yellow);
-  animation:dotBlink 1.6s ease-in-out infinite;
-}
-@keyframes dotBlink{
-  0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(255,199,44,0.6);}
-  50%{opacity:.4;box-shadow:0 0 0 6px rgba(255,199,44,0);}
-}
-
-@media(max-width:480px){
-  .block-logo{width:160px;margin-bottom:28px;}
-  .block-icon{width:74px;height:74px;margin-bottom:22px;}
-  .block-icon svg{width:34px;height:34px;}
-  .block-text{font-size:.92rem;}
-}
-
 /* ============ HEADER ============ */
 header{
   position:fixed;top:0;left:0;right:0;z-index:1000;
@@ -929,50 +782,6 @@ footer{
 </head>
 <body>
 
-<!-- ============ TELA DE BLOQUEIO ============ -->
-<div class="block-screen" id="blockScreen">
-  <div class="block-screen-content">
-
-    <img src="logo_branco.png" alt="CiZi Mercado Express" class="block-logo">
-
-    <div class="block-status">
-      <span class="dot"></span>
-      Site em construção
-    </div>
-
-    <div class="block-icon">
-      <svg viewBox="0 0 24 24">
-        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
-      </svg>
-    </div>
-
-    <h1 class="block-title">
-      Aguardando<br>
-      <span class="highlight">proposta comercial</span>
-    </h1>
-
-    <p class="block-text">
-      Este site está em fase de finalização e será liberado em breve, após aprovação da proposta comercial.
-    </p>
-
-    <div class="block-divider">
-      <span></span>
-      <svg viewBox="0 0 24 24"><path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8Z"/></svg>
-      <span></span>
-    </div>
-
-    <div class="block-footer">
-      <span>Dúvidas ou informações:</span>
-      <a href="https://wa.me/5511974522634?text=Olá!%20Gostaria%20de%20saber%20sobre%20a%20proposta%20comercial%20do%20site%20CiZi." target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.5 0-3-.4-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.4 15 4 13.5 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.8-1.1-.7-.6-1.1-1.3-1.3-1.5-.1-.2 0-.4.1-.5.1-.1.2-.3.3-.4.1-.1.2-.2.2-.4 0-.1 0-.3-.1-.4-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.1-.3-.2-.5-.3z"/></svg>
-        Falar no WhatsApp
-      </a>
-    </div>
-
-  </div>
-</div>
-<!-- ============ FIM DA TELA DE BLOQUEIO ============ -->
-
 <!-- ============ HEADER ============ -->
 <header id="header">
   <div class="container nav">
@@ -1234,22 +1043,21 @@ footer{
     <!-- GRADE DE UNIDADES -->
     <div class="unidades-grid">
       <div class="unidade-card reveal"><div class="unidade-num">1</div><div class="unidade-info"><h4>Portal dos Clássicos</h4><p>Chácara Inglesa – SBC</p></div></div>
-      <div class="unidade-card reveal"><div class="unidade-num">2</div><div class="unidade-info"><h4>Portal das Flores</h4><p>Vila Marlene – SBC</p></div></div>
-      <div class="unidade-card reveal"><div class="unidade-num">3</div><div class="unidade-info"><h4>Chácara Inglesa</h4><p>Chácara Inglesa – SBC</p></div></div>
-      <div class="unidade-card reveal"><div class="unidade-num">4</div><div class="unidade-info"><h4>Primavera</h4><p>Assunção – SBC</p></div></div>
-      <div class="unidade-card reveal"><div class="unidade-num">5</div><div class="unidade-info"><h4>Residencial Itália</h4><p>Assunção – SBC</p></div></div>
-      <div class="unidade-card reveal"><div class="unidade-num">6</div><div class="unidade-info"><h4>Quinta da Boa Vista</h4><p>Nova Petropólis – SBC</p></div></div>
-      <div class="unidade-card reveal"><div class="unidade-num">7</div><div class="unidade-info"><h4>Liguria</h4><p>Demarchi – SBC</p></div></div>
-      <div class="unidade-card reveal"><div class="unidade-num">8</div><div class="unidade-info"><h4>Isla – Cancun</h4><p>Sta Maria – SCS</p></div></div>
-      <div class="unidade-card reveal"><div class="unidade-num">9</div><div class="unidade-info"><h4>Isla – Aruba</h4><p>Sta Maria – SCS</p></div></div>
-      <div class="unidade-card reveal"><div class="unidade-num">10</div><div class="unidade-info"><h4>Portugal</h4><p>Assunção – SBC</p></div></div>
-      <div class="unidade-card reveal"><div class="unidade-num">11</div><div class="unidade-info"><h4>Motiró</h4><p>Centro – SBC</p></div></div>
-      <div class="unidade-card reveal"><div class="unidade-num">12</div><div class="unidade-info"><h4>Caminho do Mar</h4><p>Rudge Ramos – SBC</p></div></div>
-      <div class="unidade-card reveal"><div class="unidade-num">13</div><div class="unidade-info"><h4>Spetacullo Patriani</h4><p>Jd do Mar – SBC</p></div></div>
-      <div class="unidade-card reveal"><div class="unidade-num">14</div><div class="unidade-info"><h4>Chácara dos Passos</h4><p>Região – SBC</p></div></div>
-      <div class="unidade-card reveal"><div class="unidade-num">15</div><div class="unidade-info"><h4>Sollarium Park</h4><p>Centro – SBC</p></div></div>
-      <div class="unidade-card reveal"><div class="unidade-num">16</div><div class="unidade-info"><h4>Itaparica</h4><p>Jd Alvorada – SA</p></div></div>
-      <div class="unidade-card reveal"><div class="unidade-num">17</div><div class="unidade-info"><h4>Panorama</h4><p>Parque Espacial – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">2</div><div class="unidade-info"><h4>Chácara Inglesa</h4><p>Chácara Inglesa – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">3</div><div class="unidade-info"><h4>Primavera</h4><p>Assunção – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">4</div><div class="unidade-info"><h4>Residencial Itália</h4><p>Assunção – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">5</div><div class="unidade-info"><h4>Quinta da Boa Vista</h4><p>Nova Petropólis – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">6</div><div class="unidade-info"><h4>Liguria</h4><p>Demarchi – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">7</div><div class="unidade-info"><h4>Isla – Cancun</h4><p>Sta Maria – SCS</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">8</div><div class="unidade-info"><h4>Isla – Aruba</h4><p>Sta Maria – SCS</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">9</div><div class="unidade-info"><h4>Portugal</h4><p>Assunção – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">10</div><div class="unidade-info"><h4>Motiró</h4><p>Centro – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">11</div><div class="unidade-info"><h4>Caminho do Mar</h4><p>Rudge Ramos – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">12</div><div class="unidade-info"><h4>Spetacullo Patriani</h4><p>Jd do Mar – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">13</div><div class="unidade-info"><h4>Chácara dos</h4><p>Região – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">14</div><div class="unidade-info"><h4>Sollarium Park</h4><p>Centro – SBC</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">15</div><div class="unidade-info"><h4>Itaparica</h4><p>Jd Alvorada – SA</p></div></div>
+      <div class="unidade-card reveal"><div class="unidade-num">16</div><div class="unidade-info"><h4>Panorama</h4><p>Parque Espacial – SBC</p></div></div>
     </div>
 
     <div class="unidades-cta reveal">
@@ -1440,16 +1248,6 @@ footer{
 </div>
 
 <script>
-// ============ TELA DE BLOQUEIO ============
-// 💡 Dica: Descomente as 4 linhas abaixo para REMOVER a tela de bloqueio em ambiente local (localhost).
-// Em produção (Vercel), ela continuará aparecendo.
-/*
-if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-  const blockScreen = document.getElementById('blockScreen');
-  if (blockScreen) blockScreen.remove();
-}
-*/
-
 // Header scroll effect
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
@@ -1526,12 +1324,12 @@ if (video && playBtn) {
    Ex.: "Liguria": "liguria"  ->  liguria.mp4
    ========================================================= */
 const VIDEOS_UNIDADES = {
-  "Portal das Flores":    "portaldasflores",
+  "Portal dos Clássicos": "portaldasflores",
   "Primavera":            "primavera",
   "Liguria":              "liguria",
   "Portugal":             "portugal",
   "Motiró":               "motiro",
-  "Chácara dos Passos":   "chacaradospassaros",
+  "Chácara dos":          "chacaradospassaros",
   "Itaparica":            "itaparica",
   "Panorama":             "panorama"
 };
